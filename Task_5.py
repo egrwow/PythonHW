@@ -5,7 +5,7 @@ nouns = ["автомобиль", "лес", "огонь", "город", "дом"]
 adverbs = ["сегодня", "вчера", "завтра", "позавчера", "ночью"]
 adjectives = ["веселый", "яркий", "зеленый", "утопичный", "мягкий"]
 
-def some_jokes(n, repeat=False):  # возвращаем случайные шутки
+def some_jokes(n, repeat=False):  # возвращаем случайные шутки, не повторяющиеся
 
 
     no, adv, adj = nouns.copy(), adverbs.copy(), adjectives.copy()
