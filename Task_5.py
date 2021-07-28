@@ -1,17 +1,25 @@
-prices = [57.08, 46.51, 97, 51, 1.76, 20, 25.08, 76, 23.34, 98.90,
-          70.01, 63, 39, 90.47, 29, 24, 42, 59.11, 45.78, 48.29,
-          8.53, 67, 95, 5.62, 11, 18.34, 13, 64.80, 78, 93, 88.08]
+from random import choice, randrange
 
-print(f"\n\n{'*' * 35} A_1\n")
-for i in prices:
-    rub, kop = int(i // 1), int(f"{i % 1:.02f}"[2:])
-    print(f"{rub} руб {kop:02d} коп,", end=" ")
 
-    print(f"\n\n{'*' * 35} B\n")
-    print(f"ID base: {id(prices)} - {prices}")
-    prices.sort()
-    print(f"ID change: {id(prices)} - {prices}")
+nouns = ["автомобиль", "лес", "огонь", "город", "дом"]
+adverbs = ["сегодня", "вчера", "завтра", "позавчера", "ночью"]
+adjectives = ["веселый", "яркий", "зеленый", "утопичный", "мягкий"]
 
-print(f"\n{'*' * 35} C & D\n")
-new_list = sorted(prices, reverse=True)
-print(f"ID change: {id(new_list)} - {new_list}\n{new_list[:5][::-1]}")
+def some_jokes(n, repeat=False):  # возвращаем случайные шутки
+
+
+    no, adv, adj = nouns.copy(), adverbs.copy(), adjectives.copy()
+    list_of_j = []
+    list_min = min(no,adv,adj)
+
+    while n and len(list_min):
+        num = randrange(len(list_min))
+        if repeat:
+            list_of_j.append(f"{no.pop(num)} {adv.pop(num)} {adj.pop(num)}")
+        else:
+            list_of_j.append(f"{choice(nouns)} {choice(adverbs)} {choice(adjectives)}")
+        n -= 1
+    return  list_of_j
+
+
+print(some_jokes(5, True))
